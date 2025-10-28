@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">To-do List</h1>
+        <div class="input-bar">
+            <input type="text" name="" id="typeBar">
+            <button>Add</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="list">
+            <div class="list-item">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        async function index(req, res){
+            const res = await fetch("/");
+            const data = await res.json();
+            console.log(`items are ${data.title}`);
+        }
+    </script>
+</body>
+</html>

@@ -3,11 +3,12 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import todoRoutes from "./routes/todoRoutes.js"
+import pageRoutes from "./routes/pageRoutes.js"
 
 dotenv.config();
 
 const app = express();
-
+app.use(express.static("../frontend"));
 app.use(cors());
 app.use(express.json());
 
@@ -18,6 +19,8 @@ mongoose
     .catch((err) => console.log("error connecting to mongoDB:", err))
 
 app.use("/api/todos", todoRoutes);
+
+app.use("/", pageRoutes)
 
 const PORT = process.env.PORT || 5000;
 
