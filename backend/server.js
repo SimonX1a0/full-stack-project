@@ -19,7 +19,6 @@ mongoose
     .catch((err) => console.log("error connecting to mongoDB:", err))
 
 app.use("/api/todos", todoRoutes);
-
 app.use("/", pageRoutes)
 
 const PORT = process.env.PORT || 5000;

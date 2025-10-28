@@ -16,16 +16,32 @@
     <div class="content">
         <div class="list">
             <div class="list-item">
-
+                <input type="checkbox" name="" id="">
+                <span>todo</span>
+                <span>del</span>
             </div>
         </div>
     </div>
     <script>
-        async function index(req, res){
-            const res = await fetch("/");
+        async function index(){
+            const res = await fetch("/api/todos");
             const data = await res.json();
-            console.log(`items are ${data.title}`);
+            console.log(data);
+            const list = document.querySelector(".list");
+            data.forEach(element => {
+                const listItem = document.createElement("div");
+            listItem.classList.add("list-item");
+            listItem.innerHTML = `
+                <input type="checkbox" name="" id="">
+                <span>${element.title}</span>
+                <span>del</span>
+            `;
+            list.appendChild(listItem);
+            });
+            
         }
+
+        window.addEventListener("DOMContentLoaded", index);
     </script>
 </body>
 </html>
