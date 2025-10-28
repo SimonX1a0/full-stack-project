@@ -32,7 +32,7 @@
                 const listItem = document.createElement("div");
             listItem.classList.add("list-item");
             listItem.innerHTML = `
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="" ${element.completed? "checked" : ""}>
                 <span>${element.title}</span>
                 <span>del</span>
             `;
