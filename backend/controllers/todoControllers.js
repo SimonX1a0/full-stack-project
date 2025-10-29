@@ -20,8 +20,8 @@ export async function getTodos(_, res){
 
 export async function updateTodo(req, res){
     try {
-        await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updated)
+        const update = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(update)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
